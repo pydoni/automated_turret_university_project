@@ -10,8 +10,17 @@ a cada vez que um objeto de interesse é detectado, o script realiza a conexão 
 realiza as obtenções e cálculos necessários para a obtenção do angulo de cada servo e então via comunicação serial envia o comando para
 realizar a movimentação dos servos, mirando no centro do alvo.
 
+O alvo que foi utilizado para testes é a classe de celular, com os pesos obtidos pelo dataset público COCO.
+
 O objeto Talker é descrito no script talker.py e é um objeto que utiliza da biblioteca PySerial para a realização de conexão serial,
 envio de comandos com conversão em bits,obtenção de resposta do repl da Pico Pi e encerramento da conexão serial.
+
+Para a realização de testes deve ser utilizado uma maquina linux, realizando um git clone do reposítorio da yolov5, substituindo o detect
+dele pelo contido nesse diretório e colocando o talker.py dentro da mesma pasta. Rodando em sudo para evitar erros de permissão ao acesso serial.
+
+Exemplo de comando:
+
+python3 detect.py --source 0 --move-servo --max-det 1 --classes 77
 
 <h2>Referências</h2>
 
