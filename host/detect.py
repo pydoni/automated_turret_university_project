@@ -52,6 +52,10 @@ import time
 t = Talker()
 t.send("movimentar_servos(90,90)") #configurando servos para posição padrão
 t.close()
+
+def corrigir_angulo(x, in_min, in_max, out_min, out_max):
+    return int((x*100 - in_min) * (out_max - out_min) / (in_max - in_min) + out_min)
+
 #######################################################################
 
 @smart_inference_mode()
@@ -173,12 +177,13 @@ def run(
                         
                         xy = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()[0:2]  # Coordenadas do centro da boundary box do objeto
                         t = Talker() # Conexão com micro-controlador
-                        rotacao_horizontal = str((int(xy[0]*100))) 
-                        rotacao_vertical = str(int(xy[1]*100))
+                        rotacao_horizontal = str(140-corrigir_angulo(xy[0],0,100,30,70))
+                        rotacao_vertical = str(corrigir_angulo(xy[1],0,100,30,70)+40)
                         t.send("movimentar_servos("+rotacao_horizontal+","+rotacao_vertical+")") # Envio de chamadad e função com graus dos servos
                         t.receive()
                         t.close() # Encerramento de conexão
                         time.sleep(3)
+                        
                     #######################################################################
                         
                     if save_img or save_crop or view_img:  # Add bbox to image
