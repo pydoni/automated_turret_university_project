@@ -24,7 +24,7 @@ O movimento era realizado de forma manual, com o auxilio de dois potênciometros
 
 
 <hr><br>
-<p align="center"><img src="https://media0.giphy.com/media/2EsTvCgsu7f8elN6Vw/giphy.gif?cid=790b761184322891491c7c6e40043d4a1727378b0ed920b8&rid=giphy.gif&ct=g" align="center"></p>
+<p align="center"><img width = 300 src="https://i.imgur.com/nA68DKk.jpg" align="center"></p>
 <p align="center">Prototipo v2</p>
 
 A segunda versão teve a sua estrutura revisada e realiza a mira automática através de um camera que envia fotos do local para 
