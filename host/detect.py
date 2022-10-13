@@ -166,21 +166,20 @@ def run(
 
                 # Write results
                 for *xyxy, conf, cls in reversed(det):
+                    
+                    ####################### Código do projeto #############################
                     if move_servo:
                         
-                        ####################### Código do projeto #############################
-                        xy = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()[0:2]  #coordenadas do centro da boundary box do objeto
-                        t = Talker()
-                        rotacao_horizontal = str((115-int(xy[0]*100)))
-
-                        rotacao_vertical = str(int(xy[1]*100)+50)
-                        t.send("movimentar_servos("+rotacao_horizontal+","+rotacao_vertical+")")
+                        
+                        xy = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()[0:2]  # Coordenadas do centro da boundary box do objeto
+                        t = Talker() # Conexão com micro-controlador
+                        rotacao_horizontal = str((int(xy[0]*100))) 
+                        rotacao_vertical = str(int(xy[1]*100))
+                        t.send("movimentar_servos("+rotacao_horizontal+","+rotacao_vertical+")") # Envio de chamadad e função com graus dos servos
                         t.receive()
-                        print(rotacao_horizontal)
-                        print(rotacao_vertical)
-                        t.close()
+                        t.close() # Encerramento de conexão
                         time.sleep(3)
-                        #######################################################################
+                    #######################################################################
                         
                     if save_img or save_crop or view_img:  # Add bbox to image
                         c = int(cls)  # integer class
