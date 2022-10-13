@@ -12,12 +12,32 @@
 
 Projeto para a matéria de Microcontroladores e dispositivos embarcados.
 
-O projeto é uma turreta automatica que atira em alvos que estiverem com um celular a mostra.
-
-A sua primeira versão é para os testes de movimentação em dois eixos com o uso de servos.
-
-O resto das funções será implementado no segundo semestre.
+O projeto é uma turreta automatica que mira autoamticamente no alvo desejado.
 
 <hr><br>
 <p align="center"><img src="https://media0.giphy.com/media/2EsTvCgsu7f8elN6Vw/giphy.gif?cid=790b761184322891491c7c6e40043d4a1727378b0ed920b8&rid=giphy.gif&ct=g" align="center"></p>
 <p align="center">Prototipo v1</p>
+
+A sua primeira versão foi criado para os testes de movimentação em dois eixos com o uso de servos e estudo da estrutura mecânica.
+O movimento era realizado de forma manual, com o auxilio de dois potênciometros.
+
+
+
+<hr><br>
+<p align="center"><img src="https://media0.giphy.com/media/2EsTvCgsu7f8elN6Vw/giphy.gif?cid=790b761184322891491c7c6e40043d4a1727378b0ed920b8&rid=giphy.gif&ct=g" align="center"></p>
+<p align="center">Prototipo v2</p>
+
+A segunda versão teve a sua estrutura revisada e realiza a mira automática através de um camera que envia fotos do local para 
+um computador que realiza a inferência de detecção do tipo de alvo desejado, enviando via comunicação serial uma chamada de função
+no pico pi com os angulos de cada servo, para a realização da mira.
+
+A inferência de detecção de objeto é realizada através de uma versão modificada do framework YoloV5, com as classes utilizadas como
+alvo sendo treinadas no COCO dataset.
+
+<hr>
+<p align="center"> Diagrama elétrico em blocos</p>
+<p align="center"><img src="https://i.imgur.com/ngjK5ji.jpg" align="center"></p>
+<br>
+<hr>
+<p align="center"> Fluxograma do processo de mira</p>
+<p align="center"><img src="https://i.imgur.com/i3mpWe8.jpg" align="center"></p>
