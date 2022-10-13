@@ -50,7 +50,7 @@ from utils.torch_utils import select_device, smart_inference_mode
 from talker import Talker
 import time
 t = Talker()
-t.send("movimentar_servos(90,90)")
+t.send("movimentar_servos(90,90)") #configurando servos para posição padrão
 t.close()
 #######################################################################
 
@@ -83,7 +83,7 @@ def run(
         half=False,  # use FP16 half-precision inference
         dnn=False,  # use OpenCV DNN for ONNX inference
         vid_stride=1,  # video frame-rate stride
-        move_servo=False, # movimentação de servos desativadas por default
+        move_servo=False, # Código do projeto movimentação de servos desativadas por default
 ):
     source = str(source)
     save_img = not nosave and not source.endswith('.txt')  # save inference images
@@ -167,13 +167,13 @@ def run(
                 # Write results
                 for *xyxy, conf, cls in reversed(det):
                     if move_servo:
-                        xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
                         
                         ####################### Código do projeto #############################
+                        xy = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()[0:2]  #coordenadas do centro da boundary box do objeto
                         t = Talker()
-                        rotacao_horizontal = str((115-int(xywh[0]*100)))
+                        rotacao_horizontal = str((115-int(xy[0]*100)))
 
-                        rotacao_vertical = str(int(xywh[1]*100)+50)
+                        rotacao_vertical = str(int(xy[1]*100)+50)
                         t.send("movimentar_servos("+rotacao_horizontal+","+rotacao_vertical+")")
                         t.receive()
                         print(rotacao_horizontal)
