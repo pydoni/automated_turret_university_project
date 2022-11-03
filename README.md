@@ -33,7 +33,8 @@ no pico pi com os angulos de cada servo, para a realização da mira.
 
 A inferência de detecção de objeto é realizada através de uma versão modificada do framework YoloV5, com as classes utilizadas como
 alvo sendo treinadas no COCO dataset.
-
+<br>
+<a href="https://youtu.be/z4mhUnOfTGA"> <b>Link do video de funcionamento</b></a>
 <hr>
 <p align="center"> Diagrama elétrico em blocos</p>
 <p align="center"><img src="https://i.imgur.com/ngjK5ji.jpg" align="center"></p>
@@ -41,3 +42,7 @@ alvo sendo treinadas no COCO dataset.
 <hr>
 <p align="center"> Fluxograma do processo de mira</p>
 <p align="center"><img src="https://i.imgur.com/i3mpWe8.jpg" align="center"></p>
+<br>
+<hr>
+<p align="center"> Dashboard Ubidots</p>
+<p align="center"><img src="https://i.imgur.com/TsqAHya.jpg" align="center"></p>
