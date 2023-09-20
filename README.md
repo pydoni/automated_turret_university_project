@@ -43,6 +43,4 @@ alvo sendo treinadas no COCO dataset.
 <p align="center"> Fluxograma do processo de mira</p>
 <p align="center"><img src="https://i.imgur.com/i3mpWe8.jpg" align="center"></p>
 <br>
-<hr>
-<p align="center"> Dashboard Ubidots</p>
-<p align="center"><img src="https://i.imgur.com/TsqAHya.jpg" align="center"></p>
+
