@@ -1,4 +1,4 @@
-<h1>projeto_completamente_etico</h1>
+<h1>Automated Turret</h1>
 
 <hr>
 <h3 align="center">Integrantes:</h3>
